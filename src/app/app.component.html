@@ -5,3 +5,7 @@
 <button (click)="onDecrement()">-</button>
 Counter : {{ count | async }}
 <button (click)="onIncrement()">+</button>
+
+<br/>
+<input type="text" #customValue />
+<button (click)="onAddCustomValue(customValue.value)">Add</button>

@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
-import { Observable } from 'rxjs';
-import { Store, select } from '@ngrx/store';
-import { inrcemnet, dercemnet } from './actions/counter.action';
+import { Observable } from "rxjs";
+import { Store, select } from "@ngrx/store";
+import { inrcemnet, dercemnet, addValue } from "./actions/counter.action";
 
 @Component({
   selector: "app-root",
@@ -13,16 +13,19 @@ export class AppComponent {
   count: Observable<number>;
 
   constructor(private store: Store<{ count: number }>) {
-    this.count = store.pipe(select('count'));
+    this.count = store.pipe(select("count"));
   }
-
 
   onDecrement() {
-	this.store.dispatch(dercemnet());
+    this.store.dispatch(dercemnet());
   }
 
-  onIncrement(){
-	this.store.dispatch(inrcemnet());
+  onIncrement() {
+    this.store.dispatch(inrcemnet());
+  }
+
+  onAddCustomValue(value){
+    this.store.dispatch(addValue({value}));
   }
 
 }
