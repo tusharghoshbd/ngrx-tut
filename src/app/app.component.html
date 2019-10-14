@@ -9,3 +9,13 @@ Counter : {{ count | async }}
 <br/>
 <input type="text" #customValue />
 <button (click)="onAddCustomValue(customValue.value)">Add</button>
+
+<hr/>
+
+<div *ngFor="let movie of movies$ | async">
+	{{ movie.title }}
+</div>
+
+<!-- <div *ngFor="let movie of movies">
+	{{ movie.title }}
+</div> -->
